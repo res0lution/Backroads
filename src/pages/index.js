@@ -1,16 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
+import { FaAdobe } from "react-icons/fa"
 
 import Layout from "../components/Layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
-import NavBar from "../components/NavBar"
-import Footer from "../components/Footer"
 
-const IndexPage = () => (
+export default () => (
   <Layout>
-    <Link to="/blog/">Blog page</Link>
+    <div>hello from backroads</div>
   </Layout>
 )
-
-export default IndexPage
