@@ -1,30 +1,32 @@
-import React, { useState, useEffect } from "react"
+import React, { Component } from "react"
 
 import styles from "../../css/items.module.css"
-import Title from "../Title"
 import Tour from "./Tour"
+import Title from "../Title"
 
-const TourList = ({ tours: { edges } }) => {
-  const [values, setValues] = useState({
+export default class TourList extends Component {
+  state = {
     tours: [],
     sortedTours: [],
-  })
+  }
 
-  useEffect(() => {
-    setValues({ ...values, tours: edges, sortedTours: edges })
-  }, [edges])
+  componentDidMount() {
+    this.setState({
+      tours: this.props.tours.edges,
+      sortedTours: this.props.tours.edges,
+    })
+  }
 
-  return (
-    <section className={styles.tours}>
-      <Title title="our" subtitle="tours" />
-
-      <div className={styles.center}>
-        {values.sortedTours.map(({ node }) => (
-          <Tour key={node.contentful_id} tour={node} />
-        ))}
-      </div>
-    </section>
-  )
+  render() {
+    return (
+      <section className={styles.tours}>
+        <Title title="our" subtitle="tours" />
+        <div className={styles.center}>
+          {this.state.sortedTours.map(({ node }) => {
+            return <Tour key={node.contentful_id} tour={node} />
+          })}
+        </div>
+      </section>
+    )
+  }
 }
-
-export default TourList

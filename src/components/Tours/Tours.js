@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 import TourList from "./TourList"
 
@@ -26,13 +26,9 @@ const getTours = graphql`
 `
 
 const Tours = () => {
-  const tours = useStaticQuery(getTours)
+  const { tours } = useStaticQuery(getTours)
 
-  return (
-    <div>
-      <TourList tours={tours} />
-    </div>
-  )
+  return <TourList tours={tours} />
 }
 
 export default Tours
