@@ -1,56 +1,61 @@
 import React from "react"
 
-import styles from "../../css/contact.module.css"
 import Title from "../Title"
+import styles from "../../css/contact.module.css"
 
 const Contact = () => {
   return (
     <section className={styles.contact}>
-      <Title title="Contact" subtitle="us" />
+      <Title title="contact" subtitle="us" />
 
       <div className={styles.center}>
         <form
-          action="https://formspree.io/xoqkjkrn"
+          action="https://formspree.io/youremail@email.com"
           method="POST"
           className={styles.form}
         >
           <div>
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">name</label>
+
             <input
               type="text"
               name="name"
               id="name"
               className={styles.formControl}
-              placeholder="John Doe"
+              placeholder="john smith"
             />
           </div>
 
           <div>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">email</label>
+
             <input
               type="email"
               name="email"
               id="email"
               className={styles.formControl}
-              placeholder="email@example.com"
+              placeholder="email@email.com"
             />
           </div>
 
           <div>
-            <label htmlFor="message">Message</label>
+            <label htmlFor="message">message</label>
+
             <textarea
               name="message"
               id="message"
               rows="10"
               className={styles.formControl}
-              placeholder="Your message"
+              placeholder="hello there"
             />
           </div>
-
+          
           <div>
-            <button type="submit" className={styles.submit}>
-              Submit here
-            </button>
+            <input
+              type="submit"
+              value="submit here"
+              className={styles.submit}
+            />
           </div>
         </form>
       </div>

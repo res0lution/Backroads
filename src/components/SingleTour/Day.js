@@ -18,7 +18,7 @@ const Day = ({ day, info }) => {
           <FaAngleDown />
         </button>
       </h4>
-
+      
       {showInfo && <p>{info}</p>}
     </article>
   )

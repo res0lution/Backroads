@@ -21,6 +21,7 @@ export default class TourList extends Component {
     return (
       <section className={styles.tours}>
         <Title title="our" subtitle="tours" />
+
         <div className={styles.center}>
           {this.state.sortedTours.map(({ node }) => {
             return <Tour key={node.contentful_id} tour={node} />

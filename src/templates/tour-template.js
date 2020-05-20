@@ -7,6 +7,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Layout from "../components/Layout"
 import StyledHero from "../components/StyledHero"
 import styles from "../css/template.module.css"
+import SEO from "../components/SEO"
 import Day from "../components/SingleTour/Day"
 
 const Template = ({ data }) => {
@@ -20,11 +21,11 @@ const Template = ({ data }) => {
     start,
     journey,
   } = data.tour
-
   const [mainImage, ...tourImages] = images
 
   return (
     <Layout>
+      <SEO title={name} />
       <StyledHero img={mainImage.fluid} />
 
       <section className={styles.template}>

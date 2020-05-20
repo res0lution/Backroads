@@ -3,14 +3,27 @@ import Image from "gatsby-image"
 import { FaMap } from "react-icons/fa"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import PropTypes from "prop-types"
+import { useStaticQuery, graphql } from "gatsby"
 
 import styles from "../../css/tour.module.css"
 
-const Tour = ({ tour }) => {
-  const { name, price, country, days, slug, images } = tour
-  console.log(country)
+const getImage = graphql`
+  query {
+    file(relativePath: { eq: "defaultBcg.jpeg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
-  let mainImage = images[0].fluid
+const Tour = ({ tour }) => {
+  const data = useStaticQuery(getImage)
+  const img = data.file.childImageSharp.fluid
+  const { name, price, country, days, slug, images } = tour
+  let mainImage = images ? images[0].fluid : img
 
   return (
     <article className={styles.tour}>
@@ -30,7 +43,7 @@ const Tour = ({ tour }) => {
             <FaMap className={styles.icon} />
             {country || "default country"}
           </h4>
-
+          
           <div className={styles.details}>
             <h6>{days} days</h6>
             <h6>from ${price}</h6>

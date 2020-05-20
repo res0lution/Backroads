@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import Title from "../Title"
@@ -22,33 +22,33 @@ const About = () => {
 
   return (
     <section className={styles.about}>
-      <Title title="About" subtitle="us" />
+      <Title title="about" subtitle="us" />
 
       <div className={styles.aboutCenter}>
         <article className={styles.aboutImg}>
           <div className={styles.imgContainer}>
             <Img
               fluid={aboutImage.childImageSharp.fluid}
-              alt="Awesome landscape"
+              alt="awesome landscape"
             />
           </div>
         </article>
 
         <article className={styles.aboutInfo}>
-          <h4>Explore the difference</h4>
+          <h4>explore the difference</h4>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-            odio accusantium vitae.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla
+            doloribus enim necessitatibus?
           </p>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-            odio accusantium vitae.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla
+            doloribus enim necessitatibus?
           </p>
-
+          
           <button type="button" className="btn-primary">
-            Read more
+            read more
           </button>
         </article>
       </div>

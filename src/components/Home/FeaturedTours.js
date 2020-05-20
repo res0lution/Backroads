@@ -2,9 +2,9 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
+import Tour from "../Tours/Tour"
 import Title from "../Title"
 import styles from "../../css/items.module.css"
-import Tour from "../Tours/Tour"
 
 const getTours = graphql`
   query {
@@ -19,7 +19,7 @@ const getTours = graphql`
           days
           images {
             fluid {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid
             }
           }
         }

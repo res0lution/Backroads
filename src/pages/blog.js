@@ -4,27 +4,28 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import StyledHero from "../components/StyledHero"
 import BlogList from "../components/Blog/BlogList"
+import SEO from "../components/SEO"
 
 const blog = ({ data }) => {
   return (
     <Layout>
-      <StyledHero img={data.blogBcg.childImageSharp.fluid}></StyledHero>
-
+      <SEO title="Blog" />
+      <StyledHero img={data.blogBcg.childImageSharp.fluid} />
       <BlogList />
     </Layout>
   )
 }
 
-export default blog
-
 export const query = graphql`
   query {
     blogBcg: file(relativePath: { eq: "blogBcg.jpeg" }) {
       childImageSharp {
-        fluid(maxWidth: 4160, quality: 90) {
+        fluid(quality: 90, maxWidth: 4160) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
   }
 `
+
+export default blog

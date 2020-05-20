@@ -4,11 +4,13 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import StyledHero from "../components/StyledHero"
 import Contact from "../components/Contact/Contact"
+import SEO from "../components/SEO"
 
 export default function contact({ data }) {
   return (
     <Layout>
-      <StyledHero img={data.contactBcg.childImageSharp.fluid}></StyledHero>
+      <SEO title="Contact" />
+      <StyledHero img={data.contactBcg.childImageSharp.fluid} />
       <Contact />
     </Layout>
   )
@@ -18,7 +20,7 @@ export const query = graphql`
   query {
     contactBcg: file(relativePath: { eq: "connectBcg.jpeg" }) {
       childImageSharp {
-        fluid(maxWidth: 4160, quality: 90) {
+        fluid(quality: 90, maxWidth: 4160) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }
